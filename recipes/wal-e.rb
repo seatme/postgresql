@@ -27,7 +27,7 @@ end
 # that contains a packaged version of wal-e
 
 apt_repository "heroku-postgres" do
-    uri "deb http://ppa.launchpad.net/drfarina/heroku-precise/ubuntu"
+    uri "http://ppa.launchpad.net/drfarina/heroku-precise/ubuntu"
     distribution node['lsb']['codename']
     components ["main"]
 end
