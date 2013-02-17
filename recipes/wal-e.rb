@@ -30,6 +30,8 @@ apt_repository "heroku-postgres" do
     uri "http://ppa.launchpad.net/drfarina/heroku-precise/ubuntu"
     distribution node['lsb']['codename']
     components ["main"]
+    keyserver "keyserver.ubuntu.com"
+    key "DF64812E"
 end
 
 package "python-wal-e" do
@@ -41,7 +43,7 @@ directory "/etc/env.d/wal-e" do
     recursive true
     user "root"
     group "postgres"
-    mode "0750"
+    mode "0755"
 end
 
 secret = Chef::EncryptedDataBagItem.load_secret("/etc/chef/encrypted_data_bag_secret")

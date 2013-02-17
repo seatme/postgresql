@@ -64,7 +64,7 @@ template "#{node['postgresql']['dir']}/pg_hba.conf" do
   owner "postgres"
   group "postgres"
   mode 00600
-  notifies :reload, 'service[postgresql]', :immediately
+  notifies :restart, 'service[postgresql]', :immediately
 end
 
 # Default PostgreSQL install has 'ident' checking on unix user 'postgres'
